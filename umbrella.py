@@ -85,7 +85,7 @@ def umbrella(months=None, days=None, lookback=None, verbose=0):
     return list(final)
 
 if __name__ == '__main__':
-    
+
     try:
         months = sys.argv[1]
         days = sys.argv[2]
@@ -93,4 +93,8 @@ if __name__ == '__main__':
         months = None
         days = None
 
-    umbrella(months, days)
+    out = umbrella(months, days)
+
+    with open('umbrella_out.txt', 'w') as f:
+        for item in out:
+            f.write("%s\n" % item)
